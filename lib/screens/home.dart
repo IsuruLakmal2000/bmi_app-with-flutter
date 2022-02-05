@@ -46,12 +46,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           fontSize: 42,
                           fontWeight: FontWeight.w500,
                           color: accentHexColor),
+                      textAlign: TextAlign.center,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        hintText: "Height",
+                        hintText: "Enter Height",
                         hintStyle: TextStyle(
-                            fontSize: 42,
+                            fontSize: 20,
                             fontWeight: FontWeight.w300,
                             color: Colors.white.withOpacity(0.8)),
                       )),
@@ -64,12 +65,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           fontSize: 42,
                           fontWeight: FontWeight.w500,
                           color: accentHexColor),
+                      textAlign: TextAlign.center,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        hintText: "Weight",
+                        hintText: "Enter Weight",
                         hintStyle: TextStyle(
-                            fontSize: 42,
+                            fontSize: 20,
                             fontWeight: FontWeight.w300,
                             color: Colors.white.withOpacity(0.8)),
                       )),
@@ -84,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 double _h = double.parse(_heightController.text);
                 double _w = double.parse(_weightController.text);
                 setState(() {
-                  _bmiResult = _w / (_h * _h);
+                  _bmiResult = (_w * 10000) / (_h * _h);
                   if (_bmiResult > 25) {
                     _textResult = "you\'re over weight";
                   } else if (_bmiResult >= 18.5 && _bmiResult <= 25) {
@@ -109,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Container(
               child: Text(
-                _bmiResult.toStringAsFixed(2),
+                _bmiResult.toStringAsFixed(1),
                 style: TextStyle(fontSize: 90, color: accentHexColor),
               ),
             ),
